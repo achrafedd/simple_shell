@@ -43,10 +43,11 @@ char **_splitter(char *line)
 	str = strtok(line, delim);
 	while (str)
 	{
-		cmd[i] = str;
+		cmd[i] = _strdup(str);
 		str = strtok(NULL, delim);
 		i++;
 	}
+	free(line), line = NULL;
 	cmd[i] = NULL;
 	return (cmd);
 }

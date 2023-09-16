@@ -8,15 +8,22 @@
  *
  * Return: status
 */
-int _execute(char **cmd, char **argv)
+int _execute(char **cmd, char **argv, int n)
 {
 	pid_t pid;
 	int status;
+	char *path = _path(cmd[0]);
+
+	if (!path)
+	{
+		_perror(argv[0], n, cmd[0]);
+		return (100);
+	}
 
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execve(cmd[0], cmd, environ) == -1)
+		if (execve(path, cmd, environ) == -1)
 		{
 			perror(argv[0]);
 			_free_2d_array(cmd);
