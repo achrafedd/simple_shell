@@ -17,6 +17,8 @@ int _execute(char **cmd, char **argv, int n)
 	if (!path)
 	{
 		_perror(argv[0], n, cmd[0]);
+		free(path), path = NULL;
+		_free_2d_array(cmd);
 		return (100);
 	}
 
@@ -26,12 +28,14 @@ int _execute(char **cmd, char **argv, int n)
 		if (execve(path, cmd, environ) == -1)
 		{
 			perror(argv[0]);
+			free(path), path = NULL;
 			_free_2d_array(cmd);
 			exit(127);
 		}
 	} else
 	{
 		waitpid(pid, &status, 0);
+		free(path), path = NULL;
 		_free_2d_array(cmd);
 	}
 
