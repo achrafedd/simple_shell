@@ -76,15 +76,14 @@ int _strcmp(char *s1, char *s2)
 
 /**
  * _strcat - concatenates two strings.
- *
- * @dest: the result string
+ * @buff: the result string
  * @src: the source string
  *
  * Return: the concatenated string.
  */
-char *_strcat(char *dest, char *src)
+char *_strcat(char *buff, char *src)
 {
-	char *ptr = dest + strlen(dest);
+	char *ptr = buff + strlen(buff);
 
 	while (*src != '\0')
 	{
@@ -93,18 +92,17 @@ char *_strcat(char *dest, char *src)
 
 	*ptr = '\0';
 
-	return dest;
+	return (buff);
 }
 
 /**
  * _strcpy - copy a string into onther
- *
- * @dest: the copeid string
+ * @buf: the copeid string
  * @src: the original string
  *
  * Return: the copeid string
  */
-char *_strcpy(char *dest, char *src)
+char *_strcpy(char *buf, char *src)
 {
 	int i, len;
 
@@ -112,9 +110,9 @@ char *_strcpy(char *dest, char *src)
 
 	for (i = 0; i < len; i++)
 	{
-		dest[i] = src[i];
+		buf[i] = src[i];
 	}
 
-	dest[i] = '\0';
-	return (dest);
+	buf[i] = '\0';
+	return (buf);
 }
