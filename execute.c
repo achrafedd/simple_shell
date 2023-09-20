@@ -19,7 +19,7 @@ int _execute(char **cmd, char **argv, int n)
 		_perror(argv[0], n, cmd[0]);
 		free(path), path = NULL;
 		_free_2d_array(cmd);
-		exit(127);
+		return (127);
 	}
 
 	pid = fork();
