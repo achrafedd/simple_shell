@@ -67,9 +67,13 @@ void _reverse(char *str, int index)
 {
 	int start = 0;
 	int end = index - 1;
+
+
 	while (start < end)
 	{
 		char temp = str[start];
+
+
 		str[start] = str[end];
 		str[end] = temp;
 		end--;

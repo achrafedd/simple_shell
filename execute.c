@@ -2,7 +2,7 @@
 
 /**
  * _execute - execute commends
- *
+ * @n: number to compile
  * @cmd: commend
  * @argv: arguments
  *
