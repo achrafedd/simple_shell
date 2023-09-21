@@ -13,7 +13,7 @@ int main(int ac, char **av)
 {
 	char *line = NULL;
 	char **cmd = NULL;
-	int status, i = 0;
+	int status, i = 0, j;
 	(void) ac;
 
 	while (1)
@@ -29,7 +29,24 @@ int main(int ac, char **av)
 		cmd = _splitter(line);
 		if (!cmd)
 			continue;
+
+		if (strcmp(cmd[0], "exit") == 0)
+		{
+			free(line);
+			for (j = 0; cmd[j] != NULL; j++)
+			{
+				free(cmd[j]);
+			}
+			free(cmd);
+			return (0);
+		}
 		status = _execute(cmd, av, i);
+		free(line);
+		for (j = 0; cmd[j] != NULL; j++)
+		{
+			free(cmd[j]);
+		}
+		free(cmd);
 	}
 	return (0);
 }
