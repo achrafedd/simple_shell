@@ -17,7 +17,6 @@ char **_splitter1(char *s);
 int _execute(char **cmd, char **argv, int n);
 char *_getenv(char *key);
 char *_path(char *arg);
-void print_environment(void);
 
 char *_strdup(char *str);
 int _strlen(char *str);
