@@ -41,12 +41,6 @@ int main(int ac, char **av)
 			return (0);
 		}
 		status = _execute(cmd, av, i);
-		free(line);
-		for (j = 0; cmd[j] != NULL; j++)
-		{
-			free(cmd[j]);
-		}
-		free(cmd);
 	}
 	return (0);
 }
