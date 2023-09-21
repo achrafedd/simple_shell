@@ -13,6 +13,7 @@ extern char **environ;
 
 char *_readline(void);
 char **_splitter(char *line);
+char **_splitter1(char *s);
 int _execute(char **cmd, char **argv, int n);
 char *_getenv(char *key);
 char *_path(char *arg);
